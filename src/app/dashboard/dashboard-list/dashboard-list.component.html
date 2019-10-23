@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <a
+      [routerLink]="['../', 'hero-details', i]"
+      class="col m-2"
+      *ngFor="let hero of heroes | slice: 0: 4; let i = index"
+    >
+      <div class="square m-3">{{ hero.name }}</div>
+    </a>
+  </div>
+</div>
