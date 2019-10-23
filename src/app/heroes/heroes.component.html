@@ -1,5 +1,15 @@
 <div class="container">
   <h2 class="text-center mt-4">Heroes</h2>
+  <form [formGroup]="heroList">
+    <div class="row">
+      <div class="col-md-12">
+        <label for="name"
+          >Hero name: <input type="text" formControlName="name" />
+        </label>
+        <button class="btn btn-primary m-1" type="submit" (click)="submit()">Add</button>
+      </div>
+    </div>
+  </form>
   <div class="row">
     <div class="col-md-12">
       <app-heroes-list></app-heroes-list>
