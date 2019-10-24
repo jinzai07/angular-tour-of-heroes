@@ -1,20 +1,31 @@
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-12">
-      <h3 class="text-center mt-4">{{ hero.name }} details</h3>
+      <h3 class="text-center mt-4">{{ heroName }} details</h3>
     </div>
   </div>
   <div class="row justify-content-center mt-4">
-    <div class="col-md-3">
-      <p>ID: {{ hero.id }}</p>
-      <label for="name"> Name:
-            <input type="text" [(ngModel)]="hero.name">
+    <div class="col-md-4">
+      <h4>ID: {{ hero.id }}</h4>
+      <label for="name" class="h4">
+        Name:
+        <input
+          type="text"
+          [(ngModel)]="heroName"
+          #newHeroName
+        />
       </label>
     </div>
   </div>
   <div class="row justify-content-center mt-4">
-    <div class="col-md-3">
-      <button class="btn btn-danger" (click)="onBack()">Back</button>
+    <div class="col-md-4 align-self-end">
+      <button class="btn btn-danger m-1" (click)="onBack()">Back</button>
+      <button
+        class="btn btn-success m-1"
+        (click)="onSave(newHeroName.value)"
+      >
+        Save
+      </button>
     </div>
   </div>
 </div>

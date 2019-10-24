@@ -13,5 +13,11 @@ export class HeroesListComponent implements OnInit {
 
   ngOnInit() {
     this.heroes = this.heroService.getHeroes();
+    this.heroService.heroChanged.subscribe((hero)=>{
+      this.heroes = hero;
+    })
+  }
+  deleteHero(index: number){
+    this.heroService.onDeleteHero(index);
   }
 }

@@ -11,6 +11,8 @@ import { DashboardListComponent } from './dashboard/dashboard-list/dashboard-lis
 import { HeroesDetailsComponent } from './heroes/heroes-details/heroes-details.component';
 import { HeroesListComponent } from './heroes/heroes-list/heroes-list.component';
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
+import { HoverDirectiveDirective } from './directives/hover-directive.directive';
+import { SearchPipePipe } from './pipes/search-pipe.pipe';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component'
     DashboardListComponent,
     HeroesDetailsComponent,
     HeroesListComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HoverDirectiveDirective,
+    SearchPipePipe
   ],
   imports: [
     BrowserModule,

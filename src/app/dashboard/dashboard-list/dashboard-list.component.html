@@ -1,11 +1,17 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row">
     <a
       [routerLink]="['../', 'hero-details', i]"
-      class="col m-2"
-      *ngFor="let hero of heroes | slice: 0: 4; let i = index"
+      class="col"
+      *ngFor="let hero of heroes | slice: 0:4; let i = index"
     >
-      <div class="square m-3">{{ hero.name }}</div>
+      <div class="square m-3 center" appHoverDirective>
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <h5 class="text-center p-1">{{ hero.name }}</h5>
+          </div>
+        </div>
+      </div>
     </a>
   </div>
 </div>

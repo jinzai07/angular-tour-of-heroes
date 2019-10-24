@@ -1,5 +1,13 @@
 .square {
+    border-radius: 20px;
     width: 200px;
     height: 200px;
-    background-color: gray;
+}
+.center {
+    display: grid;
+    place-items: center;
+}
+a {
+    color: azure;
+    text-decoration: none;
 }

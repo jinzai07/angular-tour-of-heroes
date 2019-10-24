@@ -6,15 +6,17 @@ import { Subject } from "rxjs";
   providedIn: "root"
 })
 export class HeroService {
+  heroChanged = new Subject<Hero[]>();
+  heroLengthChanged = new Subject<number>();
   private heroes: Hero[] = [
-    new Hero(1, "Test hero 1"),
-    new Hero(2, "Test hero 2"),
-    new Hero(3, "Test hero 3"),
-    new Hero(4, "Test hero 4"),
-    new Hero(5, "Test hero 6"),
-    new Hero(6, "Test hero 7"),
-    new Hero(7, "Test hero 8"),
-    new Hero(8, "Test hero 9")
+    new Hero(1, "Mr. Nice"),
+    new Hero(2, "Narco"),
+    new Hero(3, "Bombasto"),
+    new Hero(4, "Celeritas"),
+    new Hero(5, "Magneta"),
+    new Hero(6, "RubberMan"),
+    new Hero(7, "Dynama"),
+    new Hero(8, "Dr IQ")
   ];
   getHeroes() {
     return this.heroes.slice();
@@ -22,5 +24,20 @@ export class HeroService {
   getOneHero(id: number) {
     return this.heroes[id];
   }
-
+  addNewHero(hero: Hero){
+    this.heroes.push(hero);
+    this.heroChanged.next(this.heroes.slice()); //update hero list with new data
+    this.heroLengthChanged.next(this.heroLength());
+  }
+  heroLength(){
+    return this.heroes.length + 1;
+  }
+  onDeleteHero(index: number){
+    this.heroes.splice(index, 1);
+    this.heroChanged.next(this.heroes.slice());
+  }
+  updateHero(newHeroName: string, id: number){
+    this.heroes[id].name = newHeroName;
+    this.heroChanged.next(this.heroes.slice());
+  }
 }

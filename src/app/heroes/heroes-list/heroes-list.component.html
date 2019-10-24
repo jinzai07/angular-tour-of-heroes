@@ -1,11 +1,23 @@
-<div class="row">
-  <div class="col-md-4">
-    <a
-      [routerLink]="[i]"
-      class="list-group-item mt-2"
-      *ngFor="let hero of heroes; let i = index"
-    >
-      <h4 class="list-group-item-heading">{{ hero.id }} - {{ hero.name }}</h4>
-    </a>
-  </div>
+<div class="container">
+  <ul class="list-group">
+    <li *ngFor="let hero of heroes; let i = index">
+      <div class="row">
+        <div class="col-md-10 no-margin-padding">
+          <a
+            [routerLink]="[i]"
+            routerLinkActive="active"
+            class="list-group-item list-group-item-action clearfix"
+            ><h4 class="list-group-item-heading">
+              {{ hero.id }} - {{ hero.name }}
+            </h4>
+          </a>
+        </div>
+        <div class="col-md-2 align-self-center no-margin-padding">
+          <button class="btn btn-danger btn-lg m-1" (click)="deleteHero(i)">
+            X
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
