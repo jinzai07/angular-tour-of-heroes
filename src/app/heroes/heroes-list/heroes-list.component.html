@@ -1,10 +1,10 @@
 <div class="container">
   <ul class="list-group">
-    <li *ngFor="let hero of heroes; let i = index">
+    <li *ngFor="let hero of heroes">
       <div class="row">
         <div class="col-md-10 no-margin-padding">
           <a
-            [routerLink]="[i]"
+            [routerLink]="[hero.id]"
             routerLinkActive="active"
             class="list-group-item list-group-item-action clearfix"
             ><h4 class="list-group-item-heading">
@@ -13,7 +13,7 @@
           </a>
         </div>
         <div class="col-md-2 align-self-center no-margin-padding">
-          <button class="btn btn-danger btn-lg m-1" (click)="deleteHero(i)">
+          <button class="btn btn-danger btn-lg m-1" (click)="deleteHero(hero.id)">
             X
           </button>
         </div>

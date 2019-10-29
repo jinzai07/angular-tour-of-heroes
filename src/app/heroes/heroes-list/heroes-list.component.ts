@@ -17,7 +17,7 @@ export class HeroesListComponent implements OnInit {
       this.heroes = hero;
     })
   }
-  deleteHero(index: number){
-    this.heroService.onDeleteHero(index);
+  deleteHero(id: number){
+    this.heroService.onDeleteHero(id);
   }
 }

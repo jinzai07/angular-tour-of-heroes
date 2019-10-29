@@ -22,7 +22,7 @@ export class HeroService {
     return this.heroes.slice();
   }
   getOneHero(id: number) {
-    return this.heroes[id];
+    return this.heroes.find(x => x.id === id);
   }
   addNewHero(hero: Hero){
     this.heroes.push(hero);
@@ -32,12 +32,13 @@ export class HeroService {
   heroLength(){
     return this.heroes.length + 1;
   }
-  onDeleteHero(index: number){
-    this.heroes.splice(index, 1);
+  onDeleteHero(id: number){
+    const indexOfHero = this.heroes.findIndex(x=> x.id === id);
+    this.heroes.splice(indexOfHero, 1);
     this.heroChanged.next(this.heroes.slice());
   }
   updateHero(newHeroName: string, id: number){
-    this.heroes[id].name = newHeroName;
+    this.heroes.find(x => x.id === id).name = newHeroName;
     this.heroChanged.next(this.heroes.slice());
   }
 }
