@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -11,7 +12,9 @@ import { DashboardListComponent } from './dashboard/dashboard-list/dashboard-lis
 import { HeroesDetailsComponent } from './heroes/heroes-details/heroes-details.component';
 import { HeroesListComponent } from './heroes/heroes-list/heroes-list.component';
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
+
 import { HoverDirectiveDirective } from './directives/hover-directive.directive';
+
 import { SearchPipePipe } from './pipes/search-pipe.pipe';
 
 
@@ -32,7 +35,8 @@ import { SearchPipePipe } from './pipes/search-pipe.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
