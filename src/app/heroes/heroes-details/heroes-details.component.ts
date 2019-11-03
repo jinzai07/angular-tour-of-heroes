@@ -3,6 +3,7 @@ import { Hero } from "src/app/models/hero.model";
 import { ActivatedRoute, Params } from "@angular/router";
 import { HeroService } from "src/app/services/hero.service";
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-heroes-details",
@@ -10,7 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ["./heroes-details.component.css"]
 })
 export class HeroesDetailsComponent implements OnInit{
-  hero: Hero;
+  hero$: Observable<Hero>;
   id: number;
   heroName: string;
 
@@ -24,8 +25,9 @@ export class HeroesDetailsComponent implements OnInit{
     this.route.params.subscribe((params: Params) => {
       this.id = +params["id"];
     });
-    this.hero = this.heroService.getOneHero(this.id);
-    this.heroName = this.hero.name;
+    this.heroService.getOneHero(this.id);
+    this.heroService.getHero.subscribe((hero)=>this.heroName = hero.name)
+    this.hero$ = this.heroService.getHero.asObservable();
   }
 
   onBack() {

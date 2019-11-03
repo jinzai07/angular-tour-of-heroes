@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="(hero$ | async) as hero">
   <div class="row">
     <div class="col-md-12">
-      <h3>{{ hero.name }} is my hero</h3>
+      <h3>{{ hero?.name }} is my hero</h3>
     </div>
   </div>
   <div class="row">

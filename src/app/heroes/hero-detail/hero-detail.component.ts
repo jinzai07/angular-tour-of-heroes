@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero.model';
 import { HeroService } from 'src/app/services/hero.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-hero-detail',
@@ -10,13 +11,14 @@ import { HeroService } from 'src/app/services/hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   id: number;
-  hero: Hero;
+  hero$: Observable<Hero>;
   constructor(private route: ActivatedRoute, private heroService: HeroService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params)=>{
       this.id = +params["id"];
-      this.hero = this.heroService.getOneHero(this.id);
+      this.heroService.getOneHero(this.id);
+      this.hero$ = this.heroService.getHero.asObservable();
     })
   }
   viewDetails(){

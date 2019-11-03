@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from 'src/app/services/hero.service';
 import { Hero } from 'src/app/models/hero.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-heroes-list',
@@ -8,14 +9,12 @@ import { Hero } from 'src/app/models/hero.model';
   styleUrls: ['./heroes-list.component.css']
 })
 export class HeroesListComponent implements OnInit {
-  heroes: Hero[];
+  heroes$: Observable<Hero[]>;
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
-    this.heroes = this.heroService.getHeroes();
-    this.heroService.heroChanged.subscribe((hero)=>{
-      this.heroes = hero;
-    })
+    this.heroService.getHeroes();
+    this.heroes$ = this.heroService.getAllheroes.asObservable();
   }
   deleteHero(id: number){
     this.heroService.onDeleteHero(id);

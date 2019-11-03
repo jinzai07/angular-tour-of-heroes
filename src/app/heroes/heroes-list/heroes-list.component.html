@@ -1,6 +1,6 @@
 <div class="container">
   <ul class="list-group">
-    <li *ngFor="let hero of heroes">
+    <li *ngFor="let hero of heroes$ | async">
       <div class="row">
         <div class="col-md-10 no-margin-padding">
           <a

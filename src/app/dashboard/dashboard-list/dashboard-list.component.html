@@ -3,7 +3,7 @@
     <a
       [routerLink]="['../', 'hero-details', hero.id]"
       class="col"
-      *ngFor="let hero of heroes | slice: 0:4"
+      *ngFor="let hero of heroes$ | async | slice: 0:4"
     >
       <div class="square m-3 center" appHoverDirective>
         <div class="row justify-content-center">
