@@ -1,7 +1,10 @@
 <h1> Angular tour of heroes! </h1>
-<p>This is a sample project where I learned the basics of <strong>Angular!</strong><p>
-<p> This project performs basic <strong>CRUD</strong> operations</p>
+<p>This is a sample project where I learned the basics of <strong>Angular framework!</strong><p>
+<p>This project performs basic <strong>CRUD</strong> operations using Angular basic functions and syntax</p>
 
+<p>Reference: https://angular.io/tutorial </p>
+
+<hr>
 
 # TourOfHeroes
 
